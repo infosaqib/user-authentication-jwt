@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="../stylesheets/signup.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Create an Account</h2>
+        <form action="/auth/signup" method="POST">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <button type="button" class="toggle-password" tabindex="-1">
+                    <span id="eye-slash">
+                        <!-- Eye-slash (hide password) icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-slash-fill" viewBox="0 0 16 16">
+                            <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7 7 0 0 0 2.79-.588M5.21 3.088A7 7 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474z"/>
+                            <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12z"/>
+                        </svg>
+                    </span>
+                    <span id="eye" style="display:none">
+                        <!-- Eye (show password) icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+
+            <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+
+        <div class="sign-in-with__title">sign up with</div>
+        <div class="sign-in-with__options">
+            <a class="sign-in-with__option" title="Sign up with Google">
+                <!-- Google SVG -->
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_3_40)">
+                        <path d="M24.0561 10.3266L13.8588 10.3261C13.4085 10.3261 13.0435 10.6911 13.0435 11.1414V14.3989C13.0435 14.8491 13.4085 15.2142 13.8588 15.2142H19.6012C18.9724 16.846 17.7988 18.2127 16.3014 19.0811L18.75 23.3198C22.6778 21.0481 25 17.0624 25 12.6005C25 11.9652 24.9532 11.5111 24.8595 10.9997C24.7883 10.6112 24.451 10.3266 24.0561 10.3266Z" fill="#167EE6"/>
+                        <path d="M12.5 20.1087C9.68976 20.1087 7.23644 18.5732 5.91881 16.3011L1.68024 18.7442C3.83722 22.4826 7.87794 25 12.5 25C14.7674 25 16.9069 24.3895 18.75 23.3256V23.3198L16.3014 19.081C15.1814 19.7306 13.8853 20.1087 12.5 20.1087Z" fill="#12B347"/>
+                        <path d="M18.75 23.3256V23.3198L16.3014 19.081C15.1814 19.7306 13.8854 20.1087 12.5 20.1087V25C14.7674 25 16.907 24.3895 18.75 23.3256Z" fill="#0F993E"/>
+                        <path d="M4.89131 12.5C4.89131 11.1148 5.26934 9.81885 5.9188 8.69888L1.68022 6.25581C0.610449 8.09307 0 10.2268 0 12.5C0 14.7732 0.610449 16.9069 1.68022 18.7442L5.9188 16.3011C5.26934 15.1812 4.89131 13.8852 4.89131 12.5Z" fill="#FFD500"/>
+                        <path d="M12.5 4.89131C14.3326 4.89131 16.0159 5.54248 17.3307 6.62564C17.655 6.89282 18.1265 6.87354 18.4236 6.57642L20.7317 4.26831C21.0688 3.9312 21.0448 3.37939 20.6847 3.06699C18.4818 1.15591 15.6156 0 12.5 0C7.87794 0 3.83722 2.51743 1.68024 6.25581L5.91881 8.69888C7.23644 6.42676 9.68976 4.89131 12.5 4.89131Z" fill="#FF4B26"/>
+                        <path d="M17.3307 6.62563C17.655 6.89282 18.1265 6.87354 18.4236 6.57642L20.7317 4.26831C21.0688 3.9312 21.0447 3.37939 20.6847 3.06699C18.4818 1.15586 15.6156 0 12.5 0V4.89131C14.3325 4.89131 16.0159 5.54248 17.3307 6.62563Z" fill="#D93F21"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_3_40">
+                            <rect width="25" height="25" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </a>
+            <a class="sign-in-with__option" title="Sign up with Facebook">
+                <!-- Facebook SVG -->
+                <svg width="14" height="26" viewBox="0 0 14 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.01355 26V14.141H12.9925L13.5895 9.51803H9.01355V6.56691C9.01355 5.22886 9.38359 4.31699 11.3045 4.31699L13.7505 4.31599V0.180999C13.3275 0.126029 11.8755 0 10.1855 0C6.65654 0 4.24054 2.15406 4.24054 6.10905V9.51803H0.249512V14.141H4.24054V26H9.01355Z" fill="#3D4DA6"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="login">
+            Already have an account?
+            <a href="/auth/login">Login</a>
+        </div>
+    </div>
+
+    <script src="../javascripts/script.js"></script>
+</body>
+</html>

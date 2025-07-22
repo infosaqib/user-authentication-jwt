@@ -1,0 +1,238 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f6fa;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+    padding: 38px 32px;
+    box-sizing: border-box;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 26px;
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px 40px 12px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.login-container input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    outline: none;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: #3498db;
+}
+
+.login-btn {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+}
+
+.login-btn:hover {
+    background: #2980b9;
+}
+
+.login-btn:active {
+    transform: translateY(1px);
+}
+
+.extra {
+    text-align: right;
+    margin-bottom: 24px;
+}
+
+.extra a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.extra a:hover {
+    text-decoration: underline;
+}
+
+.sign-in-with__title {
+    text-align: center;
+    color: #888;
+    margin: 24px 0 16px 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+.sign-in-with__title::before,
+.sign-in-with__title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: #ddd;
+}
+
+.sign-in-with__title::before {
+    left: 0;
+}
+
+.sign-in-with__title::after {
+    right: 0;
+}
+
+.sign-in-with__options {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.sign-in-with__option {
+    border: 1px solid #eee;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fafafa;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.sign-in-with__option:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    border-color: #ddd;
+}
+
+.signup {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.signup a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+.signup a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .login-container {
+        padding: 24px 20px;
+        margin: 0;
+    }
+    
+    .login-container h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .login-container input {
+        padding: 14px 40px 14px 14px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .login-btn {
+        padding: 16px;
+        font-size: 1rem;
+    }
+    
+    .sign-in-with__options {
+        gap: 12px;
+    }
+    
+    .sign-in-with__option {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 360px) {
+    .login-container {
+        padding: 20px 16px;
+    }
+    
+    .sign-in-with__title::before,
+    .sign-in-with__title::after {
+        width: 25%;
+    }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+    .login-container {
+        max-width: 450px;
+        padding: 40px 36px;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .login-container {
+        max-width: 420px;
+    }
+}

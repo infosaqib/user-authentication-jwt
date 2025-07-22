@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f6fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.form-container {
+  background-color: #fff;
+  padding: 38px 32px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 26px;
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+label {
+  margin-bottom: 5px;
+  text-align: left;
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+  display: block;
+}
+
+input {
+  padding: 12px;
+  margin-bottom: 18px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.form-group input {
+  padding: 12px 40px 12px 12px;
+  margin-bottom: 0;
+}
+
+input:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  outline: none;
+  color: #666;
+  transition: color 0.3s ease;
+  margin-top: 12px;
+}
+
+.toggle-password:hover {
+  color: #3498db;
+}
+
+button.submit-btn {
+  padding: 14px;
+  background-color: #3498db;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+button.submit-btn:hover {
+  background-color: #2980b9;
+}
+
+button.submit-btn:active {
+  transform: translateY(1px);
+}
+
+.sign-in-with__title {
+  text-align: center;
+  color: #888;
+  margin: 24px 0 16px 0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.sign-in-with__title::before,
+.sign-in-with__title::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background: #ddd;
+}
+
+.sign-in-with__title::before {
+  left: 0;
+}
+
+.sign-in-with__title::after {
+  right: 0;
+}
+
+.sign-in-with__options {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.sign-in-with__option {
+  border: 1px solid #eee;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.sign-in-with__option:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  border-color: #ddd;
+}
+
+.login {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.login a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.login a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  .form-container {
+    padding: 24px 20px;
+    margin: 0;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    padding: 14px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .form-group input {
+    padding: 14px 40px 14px 14px;
+  }
+  
+  button.submit-btn {
+    padding: 16px;
+    font-size: 1rem;
+  }
+  
+  .sign-in-with__options {
+    gap: 12px;
+  }
+  
+  .sign-in-with__option {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 360px) {
+  .form-container {
+    padding: 20px 16px;
+  }
+  
+  .sign-in-with__title::before,
+  .sign-in-with__title::after {
+    width: 25%;
+  }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+  .form-container {
+    max-width: 450px;
+    padding: 40px 36px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  .form-container {
+    max-width: 420px;
+  }
+}
