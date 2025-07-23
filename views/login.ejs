@@ -2,8 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Login</title>
     <link rel="stylesheet" href="/stylesheets/login.css" />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
   </head>
   <body>
     <div class="login-container">
@@ -64,12 +67,8 @@
       </form>
       <div class="sign-in-with__title">sign in with</div>
       <div class="sign-in-with__options">
-        <a
-          class="g-signin2 sign-in-with__option"
-          data-onsuccess="onSignIn"
-          title="Login with Google"
-        >
-          <!-- Google SVG -->
+        <!-- Custom Google Sign-In Button -->
+        <div id="google-signin-button" class="google-signin-custom">
           <svg
             width="25"
             height="25"
@@ -109,12 +108,8 @@
               </clipPath>
             </defs>
           </svg>
-        </a>
-        <a
-          z
-          class="sign-in-with__option"
-          title="Login with Facebook"
-        >
+        </div>
+        <a class="sign-in-with__option" title="Login with Facebook">
           <!-- Facebook SVG -->
           <svg
             width="14"
@@ -132,11 +127,56 @@
       </div>
       <div class="signup">
         Don't have an account?
-        <a href="/auth/signup">Sign up</a>
+        <a href="/auth/signup">Sign up </a>
       </div>
     </div>
 
+    <script>
+      function onSignIn(googleUser) {
+        const id_token = googleUser.getAuthResponse().id_token;
+
+        // Send this token to your backend for validation
+        fetch("/auth/google", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ token: id_token }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // Store JWT token for future API calls
+            localStorage.setItem("jwtToken", data.token);
+          })
+          .catch((error) => console.error("Error:", error));
+      }
+
+      // Ensure the gapi library is fully loaded before initializing
+      window.onload = function() {
+        gapi.load("auth2", function () {
+          gapi.auth2.init({
+            client_id: "<%= googleClientId %>",  // Dynamically inject client ID from the backend
+          });
+        });
+      };
+    </script>
 
     <script src="/javascripts/script.js"></script>
+
+    <style>
+      .google-signin-custom {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        border-radius: 8px;
+        transition: background-color 0.2s;
+      }
+      
+      .google-signin-custom:hover {
+        background-color: #f5f5f5;
+      }
+    </style>
   </body>
 </html>
