@@ -16,8 +16,7 @@ router.get('/auth/signup', function (req, res, next) {
   res.render('signup');
 });
 router.get('/auth/login', function (req, res, next) {
-  res.render('login', { googleClientId: process.env.GOOGLE_CLIENT_ID });
+  res.render('login');
 });
-
 
 export default router;

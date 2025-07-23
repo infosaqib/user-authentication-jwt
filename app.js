@@ -25,18 +25,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 import indexRouter from './routes/index.route.js';
 import usersRouter from './routes/users.route.js';
 
-app.use((req, res, next) => {
-  res.removeHeader('Content-Security-Policy');
-  next();
-});
-
 app.use('/', indexRouter);
 app.use('/auth', usersRouter);
+
+
+
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Listening on http://localhost:${PORT}`);
+  });
+}).catch((err) => {
+  console.error('DB connection failed:', err);
+});
 
 app.use((req, res) => {
   return res.status(404).send('Route Not Found');
 });
-
-app.listen(PORT, connectDB(), () => {
-  console.log(`Listening on http://localhost:${PORT}`);
-})

@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <title>Login</title>
     <link rel="stylesheet" href="/stylesheets/login.css" />
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
   </head>
   <body>
     <div class="login-container">
@@ -137,35 +136,6 @@
       </div>
     </div>
 
-    <script>
-      function onSignIn(googleUser) {
-        const id_token = googleUser.getAuthResponse().id_token;
-
-        // Send this token to your backend for validation
-        fetch("/auth/google", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ token: id_token }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            // Store JWT token for future API calls
-            localStorage.setItem("jwtToken", data.token);
-          })
-          .catch((error) => console.error("Error:", error));
-      }
-
-      // Ensure the gapi library is fully loaded before initializing
-      window.onload = function() {
-        gapi.load("auth2", function () {
-          gapi.auth2.init({
-            client_id: "<%= googleClientId %>",  // Dynamically inject client ID from the backend
-          });
-        });
-      };
-    </script>
 
     <script src="/javascripts/script.js"></script>
   </body>
